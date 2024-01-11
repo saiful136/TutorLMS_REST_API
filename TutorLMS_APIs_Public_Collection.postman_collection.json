@@ -1,0 +1,1050 @@
+{
+	"info": {
+		"_postman_id": "863ea39b-3f46-40d7-8fd6-5b0921f39958",
+		"name": "Tutor LMS APIs Public collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29535135"
+	},
+	"item": [
+		{
+			"name": "Course API",
+			"item": [
+				{
+					"name": "course-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"post_author\": 1,\n  \"post_date\": \"2023-01-01 12:00:00\",\n  \"post_date_gmt\": \"2023-01-01 00:00:00\",\n  \"post_content\": \"Introduction to Mathematics is a fundamental course covering arithmetic, algebra, geometry, and basic statistics. It develops problem-solving and critical thinking skills, providing a solid foundation for further mathematical studies and practical applications.\",\n  \"post_title\": \"Introduction to Mathematics\",\n  \"post_excerpt\": \"Introduction to Mathematics is a fundamental course covering arithmetic, algebra, geometry, and basic statistics.\",\n  \"post_status\": \"publish\",\n  \"comment_status\": \"open\",\n  \"post_password\": \"\",\n  \"post_modified\": \"2023-01-01 12:30:00\",\n  \"post_modified_gmt\": \"2023-01-01 00:30:00\",\n  \"post_content_filtered\": \"\",\n  \"additional_content\": {\n    \"course_benefits\": \"Course benefits\",\n    \"course_target_audience\": \"Course target audience\",\n    \"course_duration\": {\n        \"hours\": \"1\",\n        \"minutes\": \"10\"\n    },\n    \"course_material_includes\": \"Course material includes\",\n    \"course_requirements\": \"Course requirements\"\n  },\n   \"video\": {\n        \"source_type\": \"youtube\",\n        \"source\": \"https://www.youtube.com/watch?v=iLlrIi9-NfQ\"\n   },\n  \"course_level\": \"beginner\",\n  \"course_categories\": [161,163],\n  \"course_tags\": [18,19],\n  \"thumbnail_id\": 0\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses"
+							]
+						},
+						"description": "**Available video sources:**  \nexternal_url, shortcode, youtube, vimeo, embedded\n\n**Pricing type:**\n\npaid, free  \nwc_product_id is required for the paid type\n\n\\*_Required fields:__\\*_\n\npost_author: Author id\n\npost_title: The title of the post.  \npost_content: The content of the post.  \npost_status: The status of the post (e.g., 'publish', 'draft', 'pending', etc.).\n\n**Course Levels:**\n\nall_levels, beginner, intermediate, expert"
+					},
+					"response": []
+				},
+				{
+					"name": "courses-read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses?order=desc&orderby=ID&paged=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "desc"
+								},
+								{
+									"key": "orderby",
+									"value": "ID"
+								},
+								{
+									"key": "paged",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"post_title\": \"Course Updated\",\n  \"course_categories\": [161,162]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses/5620",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"5620"
+							]
+						},
+						"description": "**Available video sources:**  \nsource_external_url, source_shortcode, source_youtube, source_vimeo, source_embedded\n\n**Pricing type:**\n\npaid, free  \nwc_product_id is required for the paid type\n\n\\*_Required fields:__\\*_\n\npost_title: The title of the post.  \npost_content: The content of the post.  \npost_status: The status of the post (e.g., 'publish', 'draft', 'pending', etc.).\n\n**Course Levels:**\n\nall_levels, beginner, intermediate, expert"
+					},
+					"response": []
+				},
+				{
+					"name": "courses-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses/5620",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"5620"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/course-detail/5611",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course-detail",
+								"5611"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course topic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/course-topic/5585",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course-topic",
+								"5585"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course-mark-complete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course_id\": 5097,\n    \"student_id\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course-mark-complete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course-mark-complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course sorting by price",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categories\":[\"web\"],\r\n    \"tags\": [\"php\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/tutor/wp-json/tutor/v1/course-sorting-by-price?order=asc&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tutor",
+								"wp-json",
+								"tutor",
+								"v1",
+								"course-sorting-by-price"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "asc"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course rating by course id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/tutor/wp-json/tutor/v1/course-rating/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tutor",
+								"wp-json",
+								"tutor",
+								"v1",
+								"course-rating",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course by terms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categories\":[\"web\"],\r\n    \"tags\": [\"php\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/tutor/wp-json/tutor/v1/course-by-terms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tutor",
+								"wp-json",
+								"tutor",
+								"v1",
+								"course-by-terms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topic API",
+			"item": [
+				{
+					"name": "topics-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"topic_course_id\": 5607,\n  \"topic_title\": \"Introduction to Mathematics.\",\n  \"topic_summary\": \"Introduction to Mathematics is a fundamental course covering arithmetic, algebra, geometry, and basic statistics.\",\n  \"topic_author\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/topics",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"topics"
+							]
+						},
+						"description": "\\*_Required fields:__\\*_\n\ntopic_course_id,topic_title,topic_author"
+					},
+					"response": []
+				},
+				{
+					"name": "topics-read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/course-topic/5585",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course-topic",
+								"5585"
+							]
+						},
+						"description": "Here last parameter is the ID of Course. To fetch topics list course id is required"
+					},
+					"response": []
+				},
+				{
+					"name": "topics-update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"topic_title\": \"Topic updated again\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/topics/5587",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"topics",
+								"5587"
+							]
+						},
+						"description": "Here last parameter refers topic id which required to update topic."
+					},
+					"response": []
+				},
+				{
+					"name": "topics-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/topics/5588",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"topics",
+								"5588"
+							]
+						},
+						"description": "Here last parameter refers topic id which required to delete topic."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lesson API",
+			"item": [
+				{
+					"name": "Lesson by topic id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/lesson/5587",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lesson",
+								"5587"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lesson-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"topic_id\": 5608,\n        \"lesson_title\": \"Introduction to Mathematics.\",\n        \"lesson_content\": \"Introduction to Mathematics is a fundamental lesson covering arithmetic, algebra, geometry, and basic statistics.\",\n        \"thumbnail_id\": 1,\n\t\t\"lesson_author\": 1,\n        \"video\": {\n            \"source_type\": \"youtube\",\n            \"source\": \"https://www.youtube.com/watch?v=iLlrIi9-NfQ\",\n            \"runtime\": {\n                \"hours\": \"00\",\n                \"minutes\": \"10\",\n                \"seconds\": \"36\"\n            }\n        },\n        \"attachments\": [110],\n        \"preview\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/lessons/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lessons",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lesson-update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video\": {\n        \"source_type\": \"youtube\",\n        \"source\": \"https://www.youtube.com/watch?v=iLlrIi9-NfQ\",\n        \"runtime\": {\n            \"hours\": \"00\",\n            \"minutes\": \"10\",\n            \"seconds\": \"30\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/lessons/5591",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lessons",
+								"5591"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lesson-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/lessons/5609",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lessons",
+								"5609"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lesson-mark-complete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course_id\": 4041,\n    \"lesson_id\": 4088,\n    \"student_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/lesson-mark-complete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"lesson-mark-complete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment API",
+			"item": [
+				{
+					"name": "Course Assignment by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categories\":[\"web\"],\r\n    \"tags\": [\"php\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course-assignment/614",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course-assignment",
+								"614"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignment-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"topic_id\": 5587,\n  \"assignment_title\": \"New Assignments\",\n  \"assignment_author\": 1,\n  \"assignment_content\": \"<p>DUmmay content</p>\",\n  \"attachments\": [2278],\n  \"assignment_options\": {\n    \"time_duration\": {\n      \"value\": 1,\n      \"unit\": \"weeks\"\n    },\n    \"total_mark\": 10,\n    \"pass_mark\": 2,\n    \"upload_files_limit\": 1,\n    \"upload_file_size_limit\": 2\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/assignments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignment-update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"attachments\": \"134\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/assignments/5594",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"5594"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignment-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"attachments\": \"134\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/assignments/5594",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"assignments",
+								"5594"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz API",
+			"item": [
+				{
+					"name": "Quiz by topic id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/quiz/5587",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz",
+								"5587"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quiz questions ans by quiz id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/quiz-question-answer/5595",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz-question-answer",
+								"5595"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Students: Quiz Attempts Details By Quiz id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/tutor/wp-json/tutor/v1/quiz-question-answer/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tutor",
+								"wp-json",
+								"tutor",
+								"v1",
+								"quiz-question-answer",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quiz-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"topic_id\": 5587,\n    \"quiz_title\": \"Mathematics quiz\",\n    \"quiz_author\": 1,\n    \"quiz_description\": \"Introduction to Mathematics quiz.\",\n        \"quiz_options\": {\n        \"time_limit\": {\n            \"time_value\": 1,\n            \"time_type\": \"minutes\"\n        },\n        \"feedback_mode\": \"default\",\n        \"question_layout_view\": \"question_below_each_other\",\n        \"attempts_allowed\": 10,\n        \"passing_grade\": 80,\n        \"max_questions_for_answer\": 10,\n        \"questions_order\": \"rand\",\n        \"short_answer_characters_limit\": 200,\n        \"open_ended_answer_characters_limit\": 500\n  }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quizzes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quizzes"
+							]
+						},
+						"description": "Required fields:  \n'topic_id', 'quiz_title', 'quiz_author', 'quiz_options'\n\nAllowed time units:  \nseconds, minutes, hours, days, weeks\n\nAllowed feedback modes:  \ndefault, reveal, retry\n\nAllowed question layouts:\n\nAllowed question orders:"
+					},
+					"response": []
+				},
+				{
+					"name": "quiz-update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quiz_options\": {\n        \"time_limit\": {\n            \"time_value\": 3,\n            \"time_type\": \"hours\"\n        },\n        \"feedback_mode\": \"retry\",\n        \"question_layout_view\": \"question_below_each_other\",\n        \"attempts_allowed\": 4,\n        \"passing_grade\": 50,\n        \"max_questions_for_answer\": 10,\n        \"questions_order\": \"asc\",\n        \"short_answer_characters_limit\": 120,\n        \"open_ended_answer_characters_limit\": 240\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quizzes/5597",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quizzes",
+								"5597"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quiz-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quiz_options\": {\n        \"time_limit\": {\n            \"time_value\": 3,\n            \"time_type\": \"hours\"\n        },\n        \"feedback_mode\": \"retry\",\n        \"question_layout_view\": \"question_below_each_other\",\n        \"attempts_allowed\": 4,\n        \"passing_grade\": 50,\n        \"max_questions_for_answer\": 10,\n        \"questions_order\": \"asc\",\n        \"short_answer_characters_limit\": 120,\n        \"open_ended_answer_characters_limit\": 240\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quizzes/5596",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quizzes",
+								"5596"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quiz_id\": 5595,\n    \"question_title\": \"Write a short answer about Software Engineering\",\n    \"question_type\": \"short_answer\",\n    \"answer_required\": 1,\n    \"randomize_question\": 1,\n    \"question_mark\": 1.00,\n    \"show_question_mark\": 1,\n    \"answer_explanation\": \"<p>This is the sample explanation.</p>\",\n    \"question_description\": \"<p>Sample description of that quiz question.</p>\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quiz-questions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz-questions"
+							]
+						},
+						"description": "Required fields:  \n'topic_id', 'quiz_title', 'quiz_author', 'quiz_options'\n\nAllowed time units:  \nseconds, minutes, hours, days, weeks\n\nAllowed feedback modes:  \ndefault, reveal, retry\n\nAllowed question layouts:\n\nAllowed question orders:\n\n**True false question object**\n\n{ \"quiz_id\": 5595, \"question_title\": \"Mark is the owner of FB\", \"question_type\": \"true_false\", \"correct_answer\": \"true\", \"answer_required\": 1, \"randomize_question\": 1, \"question_mark\": 1.00, \"show_question_mark\": 1, \"answer_explanation\": \"\n\nAnswer explanation\n\n\", \"question_description\": \"\n\nDummy description\n\n\"}\n\n**Single choice question object**\n\n{ \"quiz_id\": 5595, \"question_title\": \"Choose the nosql database from the list below\", \"question_type\": \"single_choice\", \"options\": \\[ \"MySQL\", \"Mongo DB\", \"postgreSQL\" \\], \"correct_answer\": \"Mongo DB\", \"answer_required\": 1, \"randomize_question\": 1, \"question_mark\": 1.00, \"show_question_mark\": 1, \"answer_explanation\": \"\n\nAnswer explanation\n\n\", \"question_description\": \"\n\nDummy description\n\n\"}\n\n**Multiple choice question object**\n\n{ \"quiz_id\": 5595, \"question_title\": \"Choose the SQL databases from the below list\", \"question_type\": \"multiple_choice\", \"options\": \\[ \"MySQL\", \"Mongo DB\", \"PostgreSQL\" \\], \"correct_answer\": \\[ \"MySQL\", \"PostgreSQL\" \\], \"answer_required\": 1, \"randomize_question\": 1, \"question_mark\": 1.00, \"show_question_mark\": 1, \"answer_explanation\": \"\n\nAnswer explanation\n\n\", \"question_description\": \"\n\nDummy description\n\n\"}\n\n\\*_Fill in the blanks question object__\\*_{ \"quiz_id\": 5595, \"question_title\": \"Fill up the gaps\", \"question_type\": \"fill_in_the_blank\", \"question\": \"Dhaka city has a {dash} population. A city of {dash} & {dash}\", \"correct_answer\": \"large|dust|trafic\", \"answer_required\": 1, \"randomize_question\": 1, \"question_mark\": 1.00, \"show_question_mark\": 1, \"answer_explanation\": \"\n\nAnswer explanation\n\n\", \"question_description\": \"\n\nDummy description\n\n\"}\n\n\\*_Open ended & short answer question object, question type will be changed respectively__\\*_{ \"quiz_id\": 5595, \"question_title\": \"Write a short answer about Software Engineering\", \"question_type\": \"short_answer\", \"answer_required\": 1, \"randomize_question\": 1, \"question_mark\": 1.00, \"show_question_mark\": 1, \"answer_explanation\": \"\n\nAnswer explanation\n\n\", \"question_description\": \"\n\nDummy description\n\n\"}"
+					},
+					"response": []
+				},
+				{
+					"name": "question-update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question_title\": \"Fill up the gaps\",\n    \"question_type\": \"fill_in_the_blank\",\n    \"question\": \"Dhaka city has a {dash} population. A city of {dash} & {dash}\",\n    \"correct_answer\": \"large|dust|trafic\",\n    \"answer_required\": 1,\n    \"randomize_question\": 1,\n    \"question_mark\": 1.00,\n    \"show_question_mark\": 1,\n    \"answer_explanation\": \"<p>Answer explanation</p>\",\n    \"question_description\": \"<p>Dummy description</p>\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quiz-questions/182",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz-questions",
+								"182"
+							]
+						},
+						"description": "To update **options** or **correct_answer, below fields must need to pass:**\n\nquestion_type, options, correct_answer"
+					},
+					"response": []
+				},
+				{
+					"name": "question-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question_title\": \"Choose the NoSQL database from the list below\",\n    \"question_type\": \"single_choice\",\n    \"options\": [ \"MySQL\", \"Mongo DB\", \"postgreSQL\", \"MicroSoft\" ],\n    \"correct_answer\": \"Mongo DB\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quiz-questions/169",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz-questions",
+								"169"
+							]
+						},
+						"description": "To update **options** or **correct_answer, below fields must need to pass:**\n\nquestion_type, options, correct_answer"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enrollment API",
+			"item": [
+				{
+					"name": "do-enrollment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 2,\n    \"course_id\": 5607\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/enrollments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"enrollments"
+							]
+						},
+						"description": "**Required fields:**  \nuser_id, course_id"
+					},
+					"response": []
+				},
+				{
+					"name": "update-enrollment-status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 2,\n    \"course_id\": 5576,\n    \"enrollment_id\": 5610\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/enrollments/completed",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"enrollments",
+								"completed"
+							]
+						},
+						"description": "**Required fields:**  \nuser_id, course_id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Announcement API",
+			"item": [
+				{
+					"name": "Course annoucemnet by course id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:10007/wp-json/tutor/v1/course-annoucement/22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "10007",
+							"path": [
+								"wp-json",
+								"tutor",
+								"v1",
+								"course-annoucement",
+								"22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author detail by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tutor/wp-json/tutor/v1/author-information/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tutor",
+						"wp-json",
+						"tutor",
+						"v1",
+						"author-information",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{api_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{api_key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://yourdomain.com/wp-json/tutor/v1",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "your_api_key",
+			"type": "string"
+		},
+		{
+			"key": "api_secret",
+			"value": "your_api_secret",
+			"type": "string"
+		}
+	]
+}
